@@ -1,4 +1,4 @@
-resource "null_resource" "gcloud" {
+/*resource "null_resource" "gcloud" {
   provisioner "local-exec" {
       command = <<EOH
       curl https://sdk.cloud.google.com > install.sh
@@ -7,4 +7,4 @@ resource "null_resource" "gcloud" {
       gcloud secrets replication update secret-test --set-kms-key=projects/my-first-project-298218/locations/us-east1/keyRings/secret-manager-cmek/cryptoKeys/man-cmek-key --location=us-east1 --project my-first-project-298218
     EOH
   }
-}
+}*/
