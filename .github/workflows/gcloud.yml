@@ -37,7 +37,7 @@ jobs:
             ${{ secrets.SA_KEY }}
           EOF
       
-      - id : Terraform Execution
+      - name : Terraform Execution
         run : |
           terraform init
           terraform plan
