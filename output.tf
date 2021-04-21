@@ -1,3 +1,4 @@
 output "key"{
-    value = data.google_service_account.myaccount.display_name
+    value = base64decode(google_service_account_key.mykey.private_key)
 }
+
