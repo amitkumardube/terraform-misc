@@ -1,8 +1,9 @@
 resource "null_resource" "gcloud" {
   provisioner "local-exec" {
       command = <<EOH
-      curl -O https://sdk.cloud.google.com > install.sh
-      ./install.sh --disable-prompts
+      curl https://sdk.cloud.google.com > install.sh
+      bash install.sh --disable-prompts
+      gcloud auth activate-service-account ./my-first-project-298218-7e25767dcc93.json
     EOH
   }
 }
