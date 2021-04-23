@@ -25,6 +25,6 @@ suites:
       color: true
       systems:
         - name: local
-          backend: docker
+          backend: gcp
           controls:
             - gcloud
