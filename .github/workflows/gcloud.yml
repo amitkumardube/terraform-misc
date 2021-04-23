@@ -39,7 +39,7 @@ jobs:
       # Setting up Terraform
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 0.12.25
+          terraform_version: 0.14.9
       # creating config file with the key set a secret
       - id : config-file-creation
         name : setup service account file
