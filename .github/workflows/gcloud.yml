@@ -34,7 +34,9 @@ jobs:
           cat > my-first-project-298218-7e25767dcc93.json <<-EOF
             ${{ secrets.SA_KEY }}
           EOF
-      
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.SA_KEY }}      
 #      - name : Terraform Execution
 #        run : |
 #          terraform init
