@@ -18,8 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
-    container: amitkuamrdube/kitchen-terraform:latest
+    runs-on: ubuntu-latest
     env : 
       GOOGLE_APPLICATION_CREDENTIALS: "my-first-project-298218-7e25767dcc93.json"
 
@@ -28,12 +27,27 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # setting up ruby
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      # installing Kitchen Terraform using Gemfile
+      - name: Run Bundle 
+        run: bundle install
+
+      # Setting up Terraform
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.12.25
+      # creating config file with the key set a secret
       - id : config-file-creation
         name : setup service account file
         run : |- 
           cat > my-first-project-298218-7e25767dcc93.json <<-EOF
             ${{ secrets.SA_KEY }}
           EOF
+      # setting up gcloud with the key
       - uses: google-github-actions/setup-gcloud@master
         with:
           service_account_key: ${{ secrets.SA_KEY }}      
@@ -42,10 +56,12 @@ jobs:
 #          terraform init
 #          terraform plan
 #          terraform apply --auto-approve
+      # Running Kitchen Commands
       - name : Kitchen Execution 
         run : |
           kitchen create
           kitchen converge
           kitchen verify
+      # Running Kitchen Destroy
       - name : Kitchen Destroy
         run : kitchen destroy
