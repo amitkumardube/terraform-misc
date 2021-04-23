@@ -1,7 +1,7 @@
 // all the terraform variables are declared in this file
 // variables those contains default value are considered optional others are mandatory
 
-variable "provider_config" {
+/*variable "provider_config" {
   type = object(
     {
       project_id = string,
@@ -33,4 +33,4 @@ variable "ports" {
 variable "vm_required" {
   type = bool
   description = "to specifcy if VM is required or not"
-}
+}*/
