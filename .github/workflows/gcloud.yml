@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: ubuntu-16.04
     container: amitkuamrdube/kitchen-terraform:latest
     env : 
       GOOGLE_APPLICATION_CREDENTIALS: "my-first-project-298218-7e25767dcc93.json"
