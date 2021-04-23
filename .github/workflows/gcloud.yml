@@ -45,5 +45,5 @@ jobs:
           kitchen create
           kitchen converge
           kitchen verify
-      - name : Kithenc Destroy
+      - name : Kitchen Destroy
         run : kitchen destroy
