@@ -34,3 +34,4 @@ variable "vm_required" {
   type = bool
   description = "to specifcy if VM is required or not"
 }*/
+
