@@ -60,7 +60,7 @@ jobs:
       - name : Kitchen Execution 
         run : |
           kitchen create
-          kitchen converge
+          kitchen converge -l debug
           kitchen verify
       # Running Kitchen Destroy
       - name : Kitchen Destroy
