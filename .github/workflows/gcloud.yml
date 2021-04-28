@@ -48,7 +48,8 @@ jobs:
       - name : Kitchen Execution 
         run : |
           kitchen create
-          kitchen converge -l debug
+        #  kitchen converge -l debug
+          kitchen converge
           kitchen verify
       # Running Kitchen Destroy
       - name : Kitchen Destroy
