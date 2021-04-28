@@ -19,7 +19,9 @@ control "gcloud" do
       describe "replication region" do
         it "should exist" do
           expect(data).to include(
-            "replicas" => [{"location" => "us-east1"}]
+            {
+              "location" => "us-east1"
+            }
           )
         end
       end
